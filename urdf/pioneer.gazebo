@@ -19,7 +19,7 @@
     </plugin>
   </gazebo>
   <!-- END: Not sure if I need this -->
-  
+
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
       <alwaysOn>true</alwaysOn>
@@ -32,6 +32,7 @@
       <commandTopic>pioneer/cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
+      <odometrySource>encoder</odometrySource>
       <robotBaseFrame>base_link</robotBaseFrame>
       <publishWheelTF>true</publishWheelTF>
       <publishWheelJointState>true</publishWheelJointState>
@@ -61,12 +62,12 @@
 	<gazebo reference="chassis">
 		<material value="Gazebo/Red"/>
 	</gazebo>
-	
+
 	<!-- Top -->
 	<gazebo reference="top_plate">
 		<material value="Gazebo/Black"/>
 	</gazebo>
-	
+
 	<!-- Swivel -->
 	<gazebo reference="swivel">
 		<material value="Gazebo/Grey"/>
@@ -76,23 +77,23 @@
 	<gazebo reference="center_hubcap">
 		<material value="Gazebo/Grey"/>
 	</gazebo>
-	
+
 	<gazebo reference="center_wheel">
 		<material value="Gazebo/Black"/>
 	</gazebo>
-	
+
 	<gazebo reference="left_hub">
 		<material value="Gazebo/Yellow"/>
 	</gazebo>
-	
+
 	<gazebo reference="left_wheel">
 		<material value="Gazebo/Black"/>
 	</gazebo>
-	
+
 	<gazebo reference="right_hub">
 		<material value="Gazebo/Yellow"/>
 	</gazebo>
-	
+
 	<gazebo reference="right_wheel">
 		<material value="Gazebo/Black"/>
 	</gazebo>
@@ -188,7 +189,7 @@
           <far>300</far>
         </clip>
         <noise type="gaussian">
-           Noise is sampled independently per pixel on each frame.  
+           Noise is sampled independently per pixel on each frame.
                That pixel's noise value is added to each of its color
                channels, which at that point lie in the range [0,1]. -->
           <mean>0.0</mean>
@@ -210,6 +211,6 @@
         <distortionT2>0.0</distortionT2>
       </plugin>
     </sensor>
-  </gazebo>  
+  </gazebo>
 
 </robot>
