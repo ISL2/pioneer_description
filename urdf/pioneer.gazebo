@@ -27,8 +27,8 @@
       <leftJoint>base_left_wheel_joint</leftJoint>
       <rightJoint>base_right_wheel_joint</rightJoint>
       <torque>5</torque>
-      <wheelSeparation>0.39</wheelSeparation>
-      <wheelDiameter>0.15</wheelDiameter>
+      <wheelSeparation>0.30</wheelSeparation>
+      <wheelDiameter>0.18</wheelDiameter>
       <commandTopic>pioneer/cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -88,6 +88,10 @@
 
 	<gazebo reference="left_wheel">
 		<material value="Gazebo/Black"/>
+    <mu1>0.5</mu1>
+    <mu2>50.0</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
 	</gazebo>
 
 	<gazebo reference="right_hub">
@@ -96,6 +100,10 @@
 
 	<gazebo reference="right_wheel">
 		<material value="Gazebo/Black"/>
+    <mu1>0.5</mu1>
+    <mu2>50.0</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
 	</gazebo>
 
   <!-- Front + Back Sonar -->
