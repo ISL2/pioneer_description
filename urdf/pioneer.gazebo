@@ -20,7 +20,7 @@
   </gazebo>
   <!-- END: Not sure if I need this -->
 
-  <gazebo>
+  <!--gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
       <alwaysOn>true</alwaysOn>
       <updateRate>100</updateRate>
@@ -41,22 +41,7 @@
       <rosDebugLevel>na</rosDebugLevel>
       <legacyMode>false</legacyMode>
     </plugin>
-  </gazebo>
-  <!--<gazebo>
-    <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
-      <updateRate>100.0</updateRate>
-      <robotNamespace>/pioneer</robotNamespace>
-      <leftFrontJoint>base_left_wheel_joint</leftFrontJoint>
-      <rightFrontJoint>base_right_wheel_joint</rightFrontJoint>
-      <leftRearJoint>base_left_wheel_joint</leftRearJoint>
-      <rightRearJoint>base_right_wheel_joint</rightRearJoint>
-      <wheelSeparation>0.39</wheelSeparation>
-      <wheelDiameter>0.15</wheelDiameter>
-      <robotBaseFrame>base_link</robotBaseFrame>
-      <torque>200</torque>
-      <topicName>cmd_vel</topicName>
-    </plugin>
-  </gazebo>-->
+  </gazebo-->
 
   <!-- Chassis -->
 	<gazebo reference="chassis">
