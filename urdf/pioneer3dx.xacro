@@ -28,18 +28,16 @@
 			<material name="ChassisRed"/>
     </visual>
     <collision>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 -0.003" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://pioneer_description/meshes/p3dx_meshes/chassis.stl"/>
-				<!--box size="0.43 0.277 0.17"/-->
+				<!--<mesh filename="package://pioneer_description/meshes/p3dx_meshes/chassis.stl"/>-->
+				<box size="0.35 0.25 0.14" />
 			</geometry>
 		</collision>
 		<inertial>
-		  <mass value="20.00"/>
-		  <inertia ixx="0.07" ixy="0" ixz="0"
-		    iyy="0.08" iyz="0"
-		    izz="0.10"
-		  />
+      <origin xyz="-0.005 0 -0.148" rpy="0 0 0"/>
+		  <mass value="3.5"/>
+		  <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
 		</inertial>
   </link>
 
@@ -55,9 +53,7 @@
 			<inertial>
 				<mass value="0.01"/>
 				<origin xyz="0 0 0"/>
-				<inertia ixx="1" ixy="0" ixz="0"
-					 iyy="1" iyz="0"
-	 				izz="1"/>
+				<inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
 			</inertial>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry name="top_geom">
@@ -68,8 +64,8 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://pioneer_description/meshes/p3dx_meshes/top.stl"/>
-				<!--box size="0.44 0.38 0.005"/-->
+				<!--<mesh filename="package://pioneer_description/meshes/p3dx_meshes/top.stl"/>-->
+				<box size="0.45 0.38 0.01"/>
 			</geometry>
 		</collision>
 	</link>
@@ -78,9 +74,9 @@
 	<joint name="base_swivel_joint" type="continuous">
 		<origin xyz="-0.185 0 0.055" rpy="0 0 0"/>
 		<axis xyz="0 0 1"/>
-		<!--<anchor xyz="0 0 0"/>
+		<anchor xyz="0 0 0"/>
   	<limit effort="100" velocity="100" k_velocity="0" />
-  	<joint_properties damping="0.0" friction="0.0" />-->
+  	<joint_properties damping="0.0" friction="0.0" />
 		<parent link="base_link"/>
 		<child link="swivel"/>
 	</joint>
@@ -89,8 +85,7 @@
 		<inertial>
 			<mass value="0.1"/>
 			<origin xyz="0 0 0"/>
-			<inertia ixx="0.01" ixy="0" ixz="0"
-				 iyy="0.01" iyz="0" izz="0.01"/>
+			<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
   	</inertial>
 	  <visual name="base_visual">
 		  <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -102,7 +97,8 @@
 	  <collision>
 		  <origin xyz="0 0 0" rpy="0 0 0"/>
 		  <geometry>
-			  <mesh filename="package://pioneer_description/meshes/p3dx_meshes/swivel.stl"/>
+			  <!--<mesh filename="package://pioneer_description/meshes/p3dx_meshes/swivel.stl"/>-->
+        <box size="0.01 0.01 0.01"/>
 		  </geometry>
 	  </collision>
 	</link>
@@ -125,7 +121,8 @@
 	  <collision>
 		  <origin xyz="0 0 0" rpy="0 0 0"/>
 		  <geometry>
-			  <mesh filename="package://pioneer_description/meshes/p3dx_meshes/center_hubcap.stl"/>
+			  <!--<mesh filename="package://pioneer_description/meshes/p3dx_meshes/center_hubcap.stl"/>-->
+        <box size="0.01 0.01 0.01"/>
 		  </geometry>
 	  </collision>
 	</link>
@@ -133,9 +130,9 @@
 	<joint name="swivel_hubcap_joint" type="continuous">
 		<origin xyz="-0.026 0 -0.016" rpy="0 0 0"/>
 		<axis xyz="0 1 0"/>
-		<!--<anchor xyz="0 0 0"/>
-    <limit effort="1000" velocity="1000" k_velocity="0" />
-    <joint_properties damping="0.0" friction="0.0" />-->
+		<anchor xyz="0 0 0"/>
+    <limit effort="100" velocity="100" k_velocity="0" />
+    <joint_properties damping="0.0" friction="0.0" />
 	  <parent link="swivel"/>
 		<child link="center_wheel"/>
 	</joint>
@@ -155,10 +152,10 @@
 		  <material name="WheelBlack"/>
 	  </visual>
 	  <collision>
-		  <origin xyz="0 0 0" rpy="0 0 0"/>
+		  <origin xyz="0 0 0" rpy="${-3.1415927/2} 0 0"/>
 		  <geometry>
-		    <mesh filename="package://pioneer_description/meshes/p3dx_meshes/center_wheel.stl"/>
-			  <!--<cylinder radius="0.0375" length="0.03"/>-->
+		    <!--<mesh filename="package://pioneer_description/meshes/p3dx_meshes/center_wheel.stl"/>-->
+			  <cylinder radius="0.0375" length="0.01"/>
 		  </geometry>
 	  </collision>
 	</link>
@@ -171,21 +168,21 @@
 
 	<!-- Left Wheel -->
 	<joint name="base_left_wheel_joint" type="continuous">
-		<origin xyz="0 0.155 0.093" rpy="0 0 0"/>
+		<origin xyz="0 0.158 0.091" rpy="0 0 0"/>
 		<axis xyz="0 1 0"/>
-		<!--<anchor xyz="0 0 0"/>
-  	<limit effort="1000" velocity="1000" k_velocity="0" />
-  	<joint_properties damping="0.0" friction="0.0" />-->
+		<anchor xyz="0 0 0"/>
+  	<limit effort="100" velocity="100" />
+  	<joint_properties damping="0.0" friction="0.0" />
 		<parent link="base_link"/>
 		<child link="left_wheel"/>
 	</joint>
 
 	<link name="left_wheel">
 	  <inertial>
-			<mass value="0.1"/>
+			<mass value="0.5"/>
 			<origin xyz="0 0 0"/>
-		  <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
-				 iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+		  <inertia ixx="0.012411765597" ixy="0" ixz="0"
+				 iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
   	</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -195,10 +192,10 @@
 			<material name="WheelBlack"/>
 		</visual>
 		<collision>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 0" rpy="${-3.1415927/2} 0 0"/>
 			<geometry>
-			  <mesh filename="package://pioneer_description/meshes/p3dx_meshes/left_wheel.stl"/>
-				<!--<cylinder radius="0.092" length="0.04"/>-->
+			  <!--<mesh filename="package://pioneer_description/meshes/p3dx_meshes/left_wheel.stl"/>-->
+				<cylinder radius="0.09" length="0.01"/>
 			</geometry>
 		</collision>
 	</link>
@@ -210,6 +207,12 @@
 	</joint>
 
 	<link name="left_hub">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="0" ixz="0"
+        iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
+    </inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
@@ -220,28 +223,29 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://pioneer_description/meshes/p3dx_meshes/left_hubcap.stl"/>
+				<!--<mesh filename="package://pioneer_description/meshes/p3dx_meshes/left_hubcap.stl"/>-->
+        <box size="0.01 0.01 0.01"/>
 			</geometry>
 		</collision>
 	</link>
 
 	<!-- Right Wheel -->
 	<joint name="base_right_wheel_joint" type="continuous">
-		<origin xyz="0 -0.155 0.093" rpy="0 0 0"/>
+		<origin xyz="0 -0.158 0.091" rpy="0 0 0"/>
 		<axis xyz="0 1 0"/>
-		<!--<anchor xyz="0 0 0"/>
-  	<limit effort="1000" velocity="1000" k_velocity="0" />
-  	<joint_properties damping="0.0" friction="0.0" />-->
+		<anchor xyz="0 0 0"/>
+  	<limit effort="100" velocity="100" />
+  	<joint_properties damping="0.0" friction="0.0" />
 		<parent link="base_link"/>
 		<child link="right_wheel"/>
 	</joint>
 
 	<link name="right_wheel">
   	<inertial>
-			<mass value="0.1"/>
+			<mass value="0.5"/>
 			<origin xyz="0 0 0"/>
-			<inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
-				 iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+			<inertia ixx="0.012411765597" ixy="0" ixz="0"
+				 iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
   	</inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -251,10 +255,10 @@
 			<material name="WheelBlack"/>
 		</visual>
 		<collision>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0 0" rpy="${-3.1415927/2} 0 0"/>
 			<geometry>
-			  <mesh filename="package://pioneer_description/meshes/p3dx_meshes/right_wheel.stl"/>
-				<!--<cylinder radius="0.092" length="0.04"/>-->
+			  <!--<mesh filename="package://pioneer_description/meshes/p3dx_meshes/right_wheel.stl"/>-->
+				<cylinder radius="0.09" length="0.01"/>
 			</geometry>
 		</collision>
 	</link>
@@ -266,6 +270,12 @@
 	</joint>
 
 	<link name="right_hub">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="0" ixz="0"
+        iyy="0.015218160428" iyz="0" izz="0.011763977943"/>
+    </inertial>
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
@@ -276,7 +286,8 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://pioneer_description/meshes/p3dx_meshes/right_hubcap.stl"/>
+				<!--<mesh filename="package://pioneer_description/meshes/p3dx_meshes/right_hubcap.stl"/>-->
+        <box size="0.01 0.01 0.01"/>
 			</geometry>
 		</collision>
 	</link>
@@ -436,7 +447,7 @@
     </joint>
     <actuator name="motor1">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
+      <mechanicalReduction>${624/35 * 80/19}</mechanicalReduction>
     </actuator>
   </transmission>
 
@@ -447,7 +458,7 @@
     </joint>
     <actuator name="motor2">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
+      <mechanicalReduction>${-624/35 * 80/19}</mechanicalReduction>
     </actuator>
   </transmission>
   <!-- END: Not sure if I need this -->
