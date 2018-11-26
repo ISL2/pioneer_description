@@ -121,7 +121,7 @@
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>true</visualize>
-      <update_rate>30</update_rate>
+      <update_rate>15</update_rate>
       <ray>
 <!--   Original specs for awesome sensing capabilities   -->
         <scan>
@@ -158,7 +158,7 @@
   <!-- camera -->
   <gazebo reference="camera_link">
     <sensor type="camera" name="camera">
-      <update_rate>10.0</update_rate>
+      <update_rate>1.0</update_rate>
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
